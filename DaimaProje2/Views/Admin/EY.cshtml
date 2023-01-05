@@ -1,0 +1,92 @@
+﻿@model DaimaProje2.Models.KullaniciModel
+
+@{
+    ViewBag.Title = "EY";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2>Kullanıcı Ekle veya Düzenle</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.KullaniciNo)
+
+    <div class="form-horizontal col col-md-6">
+        <br />
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <b>@Html.LabelFor(model => model.AdSoyad, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AdSoyad, new { htmlAttributes = new { @class = "form-control",@required = "required"} })
+                @Html.ValidationMessageFor(model => model.AdSoyad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b>@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b>@Html.LabelFor(model => model.Sifre, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Sifre, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   @required = "required"
+               }
+           })
+                @Html.ValidationMessageFor(model => model.Sifre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b>@Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(x => x.Rol, new List<SelectListItem>
+                      {
+                      new SelectListItem { Text = "Admin", Value = "Admin"},
+                      new SelectListItem { Text = "Uretim", Value = "Uretim"},
+                      new SelectListItem { Text = "Satis", Value = "Satis"},
+                      new SelectListItem { Text = "Rol1", Value = "Rol1"}
+                      }, new { @class = "form-control-dropdown" })
+
+
+                @*@Html.EditorFor(model => model.Rol, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <input type="submit" value="Kaydet" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+<div class="col col-md-10" style="margin-left:20px; margin-top:20px">
+    @Html.ActionLink("Geri Dön", "Index")
+</div>
+
+
+<style>
+    .form-control-dropdown {
+        width: 500px;
+        height: 35px;
+        border-radius: 5px;
+    }
+</style>

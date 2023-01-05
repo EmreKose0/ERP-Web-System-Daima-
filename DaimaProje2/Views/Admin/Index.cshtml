@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DaimaProje2.Models.KullaniciModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <ol class="breadcrumb mb-4">
+            </ol>
+
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                @*<table class="table table-bordered table-hover">*@
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdSoyad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sifre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rol)
+                    </th>
+                    <th>
+                        @Html.Label(" Düzenle")
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AdSoyad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sifre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rol)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Düzenle", "EY", new { id = item.KullaniciNo }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Sil", "Delete", new { id = item.KullaniciNo }, new { @class = "btn btn-danger" })
+                            
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <br />
+            <div class="col col-md-12" style="display: flex; justify-content: flex-end">
+                    @Html.ActionLink("Kullanıcı Ekle", "EY", null, new { @class = "btn btn-info" })
+            </div>
+           
+        </div>
+    </main>
+</div>

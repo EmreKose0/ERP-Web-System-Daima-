@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DaimaProje2.Models.UretimJoin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="card-body">
+            <table id="datatablesSimple" class="table table-hover table table-bordered">
+                @*<table class="table table-bordered table-hover">*@
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UretimNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UrunAdi)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Adet)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdSoyad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UretimTarihi)
+                    </th>
+                    <th>
+                        @Html.Label(" Düzenle")
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UretimNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunAdi)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Adet)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AdSoyad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UretimTarihi)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Düzenle", "EY", new { id = item.UretimNo }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Sil", "Delete", new { id = item.UretimNo }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <div class="col col-md-offset-9  col-md-4" id="buton2">
+                @Html.ActionLink("Üretim Ekle", "EY", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </main>
+</div>
+
+<style>
+    .btn-info {
+        display: flex;
+        font-size: 20px;
+        height: 40px;
+        width: 150px;
+        justify-content: center;
+    }
+
+    #buton {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DaimaProje2.Models.StokUrunAd>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<h2 style="display:flex; justify-content:start; margin-left:20px">Stok Takibi</h2>
+<br />
+<div id="layoutSidenav_content">
+
+
+    <div class="card-body col-md-offset-0 col-md-11" style="display:flex; justify-content:flex-start">
+        <table class="table table-bordered">
+            @*<table class="table table-bordered table-hover">*@
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.UrunAdi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Miktar)
+                    </th>
+
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                if (item.Miktar < 50)
+                {
+                    <tr class="kritikMiktar">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunAdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Miktar)
+                        </td>
+
+                    </tr>
+                }
+
+                else if (item.Miktar >= 50 && item.Miktar < 80)
+                {
+                    <tr class="kritikYaklasanMiktar">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunAdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Miktar)
+                        </td>
+
+                    </tr>
+                }
+
+                else
+                {
+                    <tr class="kritiksiz">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UrunAdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Miktar)
+                        </td>
+
+                    </tr>
+                }
+
+            }
+
+        </table>
+        <br />
+    </div>
+</div>
+<style>
+    .kritikMiktar {
+        background-color: #ffdfd4;
+    }
+
+    .kritikYaklasanMiktar {
+        background-color: #fffacd;
+    }
+    .kritiksiz {
+        background-color: #e8e8e8;
+    }
+
+</style>

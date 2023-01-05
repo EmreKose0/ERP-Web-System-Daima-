@@ -1,0 +1,408 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+    @if (User.IsInRole("Admin"))
+    {
+       
+        <div class="card col col-md-12" style="margin-top:100px">
+            <div class="container">
+
+                <div class="hexagonArea first">
+                    <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                        <div class="hexagon a">
+                            <i class="glyphicon glyphicon-home" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Ana Sayfa</b></div>
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Uretim")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-open" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Üretim</b></div>
+
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Index2","Uretim")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-alert" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Boş Alan</b></div>
+
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Stok")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-tasks" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Stok</b></div>
+
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Satis")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-briefcase" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Satış</b></div>
+
+                        </div>
+                    </a>
+
+                </div>
+                <div class="container" style="margin-left:-115px; margin-top:-350px;">
+                    <div class="hexagonArea last" style="margin-top:300px; margin-left:200px;">
+                        <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-barcode" style="font-size:88px;color:black;"> </i>
+                                <div class="overlay-text" style="color:black"><b>Barkod</b></div>
+
+                            </div>
+                        </a>
+                        <a href="@Url.Action("Index","Admin")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-user" style="font-size:88px;color:black;"> </i>
+                                <div class="overlay-text" style="color:black"><b>Admin</b></div>
+
+                            </div>
+                        </a>
+                        <a href="@Url.Action("SifreDegis","Account")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-lock" style="font-size:88px;color:black;"> </i>
+
+                                <div class="overlay-text" style="color:black;"><b>Şifre Değiştir</b></div>
+                            </div>
+                        </a>
+                        <a href="@Url.Action("LogOut","Account")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-off" style="font-size:88px;color:red;"> </i>
+
+                                <div class="overlay-text" style="color:black;"><b>Çıkış Yap</b></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @if (User.IsInRole("Satis"))
+    {
+        <div class="card col col-md-12" style="margin-top:100px">
+            <div class="container">
+
+                <div class="hexagonArea first">
+                    <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                        <div class="hexagon a">
+                            <i class="glyphicon glyphicon-home" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Ana Sayfa</b></div>
+                        </div>
+                    </a>
+                    <a href="" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-open" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black;font-size:medium">Yetkiniz Bulunmamaktadır!</div>
+
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-alert" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Boş Alan</b></div>
+
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Stok")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-tasks" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Stok</b></div>
+
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Satis")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-briefcase" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Satış</b></div>
+
+                        </div>
+                    </a>
+
+                </div>
+                <div class="container" style="margin-left:-115px; margin-top:-350px;">
+                    <div class="hexagonArea last" style="margin-top:300px; margin-left:200px;">
+                        <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-barcode" style="font-size:88px;color:black;"> </i>
+                                <div class="overlay-text" style="color:black;font-size:medium">Yetkiniz Bulunmamaktadır!</div>
+
+                            </div>
+                        </a>
+                        <a href="" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-user" style="font-size:88px;color:black;"> </i>
+                                <div class="overlay-text" style="color: black;font-size: medium">Yetkiniz Bulunmamaktadır!</div>
+
+                            </div>
+                        </a>
+                        <a href="@Url.Action("SifreDegis","Account")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-lock" style="font-size:88px;color:black;"> </i>
+
+                                <div class="overlay-text" style="color: black"><b>Şifre Değiştir</b></div>
+                            </div>
+                        </a>
+                        <a href="@Url.Action("LogOut","Account")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-off" style="font-size:88px;color:red;"> </i>
+
+                                <div class="overlay-text" style="color:black;"><b>Çıkış Yap</b></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (User.IsInRole("Rol1"))
+    {
+     <div class="card col col-md-12" style="margin-top:100px">
+         <div class="container">
+
+             <div class="hexagonArea first">
+                 <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                     <div class="hexagon a">
+                         <i class="glyphicon glyphicon-home" style="font-size:88px;color:black;"> </i>
+                         <div class="overlay-text" style="color:black"><b>Ana Sayfa</b></div>
+                     </div>
+                 </a>
+                 <a href="" style="text-decoration:none">
+                     <div class="hexagon">
+                         <i class="glyphicon glyphicon-open" style="font-size:88px;color:black;"> </i>
+                         <div class="overlay-text" style="color:black;font-size:medium">Yetkiniz Bulunmamaktadır!</div>
+
+                     </div>
+                 </a>
+
+                 <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                     <div class="hexagon">
+                         <i class="glyphicon glyphicon-alert" style="font-size:88px;color:black;"> </i>
+                         <div class="overlay-text" style="color:black"><b>Boş Alan</b></div>
+
+                     </div>
+                 </a>
+                 <a href="" style="text-decoration:none">
+                     <div class="hexagon">
+                         <i class="glyphicon glyphicon-tasks" style="font-size:88px;color:black;"> </i>
+                         <div class="overlay-text" style="color:black;font-size:medium"><b>Yetkiniz Bulunmamaktadır!</b></div>
+
+                     </div>
+                 </a>
+                 <a href="" style="text-decoration:none">
+                     <div class="hexagon">
+                         <i class="glyphicon glyphicon-briefcase" style="font-size:88px;color:black;"> </i>
+                         <div class="overlay-text" style="color:black"><b>Yetkiniz Bulunmamaktadır!</b></div>
+
+                     </div>
+                 </a>
+
+             </div>
+             <div class="container" style="margin-left:-115px; margin-top:-350px;">
+                 <div class="hexagonArea last" style="margin-top:300px; margin-left:200px;">
+                     <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                         <div class="hexagon">
+                             <i class="glyphicon glyphicon-barcode" style="font-size:88px;color:black;"> </i>
+                             <div class="overlay-text" style="color:black;font-size:medium">Barkod İşlemleri</div>
+
+                         </div>
+                     </a>
+                     <a href="" style="text-decoration:none">
+                         <div class="hexagon">
+                             <i class="glyphicon glyphicon-user" style="font-size:88px;color:black;"> </i>
+                             <div class="overlay-text" style="color: black;font-size: medium">Yetkiniz Bulunmamaktadır!</div>
+
+                         </div>
+                     </a>
+                     <a href="@Url.Action("SifreDegis","Account")" style="text-decoration:none">
+                         <div class="hexagon">
+                             <i class="glyphicon glyphicon-lock" style="font-size:88px;color:black;"> </i>
+
+                             <div class="overlay-text" style="color: black"><b>Şifre Değiştir</b></div>
+                         </div>
+                     </a>
+                     <a href="@Url.Action("LogOut","Account")" style="text-decoration:none">
+                         <div class="hexagon">
+                             <i class="glyphicon glyphicon-off" style="font-size:88px;color:red;"> </i>
+
+                             <div class="overlay-text" style="color:black;"><b>Çıkış Yap</b></div>
+                         </div>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+    }
+    @if (User.IsInRole("Uretim"))
+    {
+        <div class="card col col-md-12" style="margin-top:100px">
+            <div class="container">
+
+                <div class="hexagonArea first">
+                    <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                        <div class="hexagon a">
+                            <i class="glyphicon glyphicon-home" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Ana Sayfa</b></div>
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Uretim")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-open" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Üretim</b></div>
+
+                        </div>
+                    </a>
+
+                    <a href="@Url.Action("Index","Home")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-alert" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Boş Alan</b></div>
+
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Index","Stok")" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-tasks" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black"><b>Stok</b></div>
+
+                        </div>
+                    </a>
+                    <a href="" style="text-decoration:none">
+                        <div class="hexagon">
+                            <i class="glyphicon glyphicon-briefcase" style="font-size:88px;color:black;"> </i>
+                            <div class="overlay-text" style="color:black;font-size:medium">Yetkiniz Bulunmamaktadır!</div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="container" style="margin-left:-115px; margin-top:-350px;">
+                    <div class="hexagonArea last" style="margin-top:300px; margin-left:200px;">
+                        <a href="" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-barcode" style="font-size:88px;color:black;"> </i>
+                                <div class="overlay-text" style="color:black;font-size:medium">Yetkiniz Bulunmamaktadır!</div>
+
+                            </div>
+                        </a>
+                        <a href="" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-user" style="font-size:88px;color:black;"> </i>
+                                <div class="overlay-text" style="color:black;font-size:medium">Yetkiniz Bulunmamaktadır!</div>
+
+                            </div>
+                        </a>
+                        <a href="@Url.Action("SifreDegis","Account")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-lock" style="font-size:88px;color:black;"> </i>
+
+                                <div class="overlay-text" style="color:black;"><b>Şifre Değiştir</b></div>
+                            </div>
+                        </a>
+                        <a href="@Url.Action("LogOut","Account")" style="text-decoration:none">
+                            <div class="hexagon">
+                                <i class="glyphicon glyphicon-off" style="font-size:88px;color:red;"> </i>
+
+                                <div class="overlay-text" style="color:black;"><b>Çıkış Yap</b></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+<style>
+    .navbar-nav > li {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .overlay-text{
+        opacity:0;
+    }
+    .container .hexagonArea .hexagon:hover .overlay-text{
+        opacity:1;
+        font-size:xx-large;
+        text-align:center;
+        display:flex;
+
+    }
+    .container .hexagonArea .hexagon:hover i {
+        display:none;
+    }
+
+    .container {
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*flex-direction: column;*/
+        flex-wrap: wrap;
+    }
+        /*body {
+            display: flex;*/
+        /* justify-content: center;
+            align-items: center;*/
+        /*min-height:100vh;
+        }*/
+
+        .container .hexagonArea {
+            display: flex;
+        }
+
+            .container .hexagonArea .hexagon {
+                position: relative;
+                width: 200px;
+                height: 250px;
+                margin: 0 10px;
+                box-sizing: border-box;
+                clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+                
+                background-color:wheat;
+                opacity: 0.9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                cursor: pointer;
+                transition: .5s;
+            }
+
+            .container .hexagonArea .last {
+                transform: translateY(-45deg);
+
+            }
+
+            .container .hexagonArea .hexagon img {
+                width: 80px;
+            }
+
+            .container .hexagonArea .hexagon h3 {
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-top: 10px;
+                font-size: 17px;
+                letter-spacing: 1px;
+            }
+
+            .container .hexagonArea .hexagon:hover {
+                background:grey;
+                opacity:0.5;
+                transform: scale(0.8);
+                
+                
+            }
+            
+
+</style>
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+

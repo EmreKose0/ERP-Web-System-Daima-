@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DaimaProje2.Models.StokUrunAd>
+
+@{
+    ViewBag.Title = "StokIndex";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2 style="margin-left:30px">Stok Ekle / Düzenle</h2>
+<br />
+<div class="card-body col-md-offset-0 col-md-11" style="display:flex; justify-content:flex-start">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UrunAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Miktar)
+            </th>
+            <th>
+                @Html.Label("Düzenle")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Miktar)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "StokEY", new { id = item.StokNo }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>
+<br />
+<br />
+<div class="col col-md-offset-10  col-md-2">
+    <br />
+    <br />
+    @Html.ActionLink("Yeni Kayıt Oluştur", "StokEY", null, new { @class = "btn btn-info" })
+</div>

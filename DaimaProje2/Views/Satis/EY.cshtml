@@ -1,0 +1,63 @@
+﻿@model DaimaProje2.Models.SatisModel
+
+@{
+    ViewBag.Title = "EY";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2 style="margin-left:30px">Satış Ekle / Düzenle</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.SatisNo)
+
+    <div class="form-horizontal col col-md-4">
+        <br />
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <b>@Html.LabelFor(model => model.UrunNo, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UrunNo, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.UrunNo, "", new { @class = "text-danger" })
+            <br />
+        </div>
+        <b>@Html.LabelFor(model => model.Adet, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Adet, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.Adet, "", new { @class = "text-danger" })
+            <br />
+        </div>
+        <b>@Html.LabelFor(model => model.SatisTarihi, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SatisTarihi, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.SatisTarihi, "", new { @class = "text-danger" })
+            <br />
+        </div>
+        <b>@Html.LabelFor(model => model.MusteriNo, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MusteriNo, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.MusteriNo, "", new { @class = "text-danger" })
+        </div>
+        <b>@Html.LabelFor(model => model.KullaniciNo, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.KullaniciNo, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.KullaniciNo, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-10 col-md-4">
+                <input type="submit" value="Kaydet" class="btn btn-info" style="width:80px" />
+            </div>
+        </div>
+    </div>
+}
+<br />
+<br />
+<div class="col col-md-10" style="margin-left:20px; margin-top:20px">
+    @Html.ActionLink("Geri Dön", "Index")
+</div>
+

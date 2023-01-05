@@ -1,0 +1,79 @@
+﻿@model DaimaProje2.Models.KullaniciModel
+
+@{
+    ViewBag.Title = "SifreDegis";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2 style="margin-left:100px">Şifre Değiştirme Ekranı</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <br />
+        <div class="container">
+            <div class="row" style="margin-left:-330px">
+                <div class="col col-md-3" >
+                    <div class="form-group">
+                        <label> Eski Şifreyi Giriniz </label>
+                        <input type="text" name="eskiSifre" class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <div class="col col-md-3">
+                    <div class="form-group">
+                        <label> Yeni Şifreyi Giriniz </label>
+                        <input type="text" name="Sifre" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary" style="margin-left:34px" onclick="Kontrol()" />
+                        <h6 style="color:darkred;margin-left: -150px; padding:0 10px 0 0">@TempData["messages2"]</h6>
+                        @*@{
+                            try
+                            {
+                                if (TempData["messages3"] != null)
+                                {
+                                    <script>
+                                        swal("Uyarı...", "Şifreniz Başarılı Bir Şekilde Değiştirildi!", "success");
+
+                                    </script>
+                                }
+
+                            }
+                            catch
+                            {
+                            }
+                        }*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!--<-->@*script >
+        function Kontrol() {
+
+                /* prompt("prompt kullanısı", "valuesi ile icine yaziyorum");*/
+                window.alert("Şifreniz Başarıyla Değiştirildi...");
+
+
+        }
+    </script>*@
